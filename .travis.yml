@@ -1,21 +1,29 @@
 language: python
 python:
-- 3.8
-- 3.7
-- 3.6
-- 3.5
+    - 3.8
+    - 3.7
+    - 3.6
 install: pip install -U tox-travis
 script: tox
 deploy:
-  provider: pypi
-  distributions: sdist bdist_wheel
-  user: puneeth
-  password:
-    secure: PLEASE_REPLACE_ME
-  on:
-    tags: true
-    repo: PuneethaPai/colab_host
-    python: 3.8
-env:
-  global:
-    secure: hUSecKJ7b+7KpF/BWOUlUtbVQNOfgb9dEUO5rMrRHg1S0A3eWYVySS5O3VYtC/R/ws8MWjdzK55Qy6yGVET0bvuRgwhv6zQk22nRQAq5v1lAuagSVr4ipH+t/WiCYw4ZRG44BgakpXckshvAMB7SKFMwtXmLhuhFOKnb1pBaWMVqsr1oDQKltG5QzoTWh9VMba/DLGq1kaMq5ZDqNUUrIlu17ha4ZPKJZPibUCwwXErV3np0Rk1ze2MA+NdwY04B5w5RA20iRcfILsD8SOUg5BaJ8+uJl33eBVPFNuU9U8XBgKVvUPrgJdM8gypNdsvDvzNWEFjY8gi5zv4j7ZJxMYG3wu3sciFmxYlsJ1EVX1/vF28dDgB8SD0J5ieasp+GkAONaIcLTX4dcnQRJwkcxLjPhwgUrNChXHNCm9zwXTT9u+S0W5fxLgNIpFL5xRDZpVFrw1w9wHU5Ok4FVfum+fxrhJuH7AvSZv8brUTaUaDgXLcrLXvIbc9lzytjgEqneP3Fcb06IcIOfvXaMaFYNB/28JT3rawrl6KzMV0fr/PU/all339mkhGRlzkS4IiBVff6GrDXZN7mZ9AcbTl3nyr46ZiauuOwZNTz/DntM9JJ+Xhp7yRQLyBDTciYCbsWvhXmhglYdwB/XAExSYWmqDuGNU5wdcqzQ/b4V/kqklA=
+    provider: pypi
+    distributions: sdist bdist_wheel
+    user: puneeth
+    password:
+        secure: !!binary |
+            dmdRcEZ1Zk5PL3FoZ21NSzlZSUVKV2RDZEpiT2JGQUltbkwvZFRKS01mcWVHQUFIVlZhN3ZZSHdU
+            dmMyaUlsK0kvWkJnMlQyUWlHL1VPdFRzbGlkWVlIYUU1K0ttc082R2JHaUdIT0pOaFYvajlydFNj
+            V2lSeml0eGFQdW9BWFhPc3ptMWJKMzk2Z29pS1VCbTZaYnV1ZUdLYVM4TmIwWEQ5NWh5RDdjSC9M
+            RmtUT3FySFVJdUlNNnI2UDZrSzNvWmFqT2kyd29reHFDb1M0WEI0RmlEK2dJUzBFemh0UGgzTEFH
+            YU1Pc2NNZHdveTNHUU12VWpCYzVNeXM5QXdzZ2FDUGNGVFNjOUF5VlpuWHZmckFJQjdIRTg1K29h
+            MGJVN05xUkJIdWhHL1l5UmZ0eDJsY2ltVkM1cWJjWEk0MDBpOE9vdUZVTjdGbXpEVmVVbVVtTjBG
+            Y1hITTdkb3loR29vcFVVY3ZvS2c1dGw2TGNCL2xIZndTZmMwRnhWT1NoYU10K3hNdklaTVRHVWMr
+            bXFXT0FFR256bHRyMEM3RC9sYnZCWExrdWVvak1Ody9nRlpSRnJiTGZGV0F3VUp5SXJRbFk2WGF6
+            R1E3elVMeUdDREFtaW1hZUVUbzJLT3BIVWpiQjBZOGlsZnNUMjIyaXlBdTVLZ0xXZjlJQ0xLNlQx
+            cVoyRWxoZWJaNitCMkQvYmtXOG5ybWE3UjFUYksyeXdEQjRGb3E4VE1kR2NsUTRzRkw4RnZPeWRB
+            MnRISUl4b2d5a0N2dlVPYktPWkQ5bml0dTE0aHlBWXVGNjFaVEpGVEZzR2J6QzRsQVd2aUovVXdG
+            VW5jUDhFazlrbWpRUGF3eUZTRXp6UHUzenJGWk1pVlg4azBCZ2hoQUozaDZJeTRXNHFzRStiZmM9
+    on:
+        tags: true
+        repo: PuneethaPai/colab_host
+        python: 3.8
