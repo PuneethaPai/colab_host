@@ -2,4 +2,4 @@
 
 
 def hello(name: str = None) -> str:
-    return f"Hello {name if name else 'World'}!"
+    return f"""Hello {name if name else "World"}!"""
