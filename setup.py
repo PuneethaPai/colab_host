@@ -10,11 +10,6 @@ with open("README.rst") as readme_file:
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
-requirements = []
-
-setup_requirements = []
-
-test_requirements = ["pytest"]
 
 setup(
     author="Puneetha Pai",
@@ -36,16 +31,16 @@ setup(
             "colab_host=colab_host.cli:main",
         ],
     },
-    install_requires=requirements,
+    install_requires=["pyngrok>=4"],
     license="MIT license",
     long_description=readme + "\n\n" + history,
     include_package_data=True,
     keywords="colab_host",
     name="colab_host",
     packages=find_packages(include=["colab_host", "colab_host.*"]),
-    setup_requires=setup_requirements,
+    setup_requires=["pyngrok>=4"],
     test_suite="tests",
-    tests_require=test_requirements,
+    tests_require=["pytest"],
     url="https://github.com/PuneethaPai/colab_host",
     version="0.1.0",
     zip_safe=False,
