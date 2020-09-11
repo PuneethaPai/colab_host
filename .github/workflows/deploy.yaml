@@ -2,8 +2,8 @@ name: CI Deploy
 
 on:
     push:
-        branches:
-            - master
+        tags:
+            - v*
 
 jobs:
     deploy:
