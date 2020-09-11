@@ -11,6 +11,7 @@ with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
 
+install_requires = ["pyngrok>=4"]
 setup(
     author="Puneetha Pai",
     author_email="puneethapai29@gmail.com",
@@ -31,16 +32,14 @@ setup(
             "colab_host=colab_host.cli:main",
         ],
     },
-    install_requires=["pyngrok>=4"],
+    install_requires=install_requires,
+    extra_requires=dict(tests=["pytest"]),
     license="MIT license",
     long_description=readme + "\n\n" + history,
     include_package_data=True,
     keywords="colab_host",
     name="colab_host",
     packages=find_packages(include=["colab_host", "colab_host.*"]),
-    setup_requires=["pyngrok>=4"],
-    test_suite="tests",
-    tests_require=["pytest"],
     url="https://github.com/PuneethaPai/colab_host",
     version="0.1.0",
     zip_safe=False,
