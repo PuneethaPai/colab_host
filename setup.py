@@ -33,7 +33,6 @@ setup(
         ],
     },
     install_requires=install_requires,
-    extra_requires=dict(tests=["pytest"]),
     license="MIT license",
     long_description=readme + "\n\n" + history,
     include_package_data=True,
@@ -41,6 +40,6 @@ setup(
     name="colab_host",
     packages=find_packages(include=["colab_host", "colab_host.*"]),
     url="https://github.com/PuneethaPai/colab_host",
-    version="version='0.1.1'",
+    version="0.1.2",
     zip_safe=False,
 )
