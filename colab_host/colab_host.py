@@ -50,3 +50,14 @@ class JupyterNotebook(Host):
             f"python -m jupyter notebook --allow-root --ip=0.0.0.0 --port {self.port}".split(),
             stdout=subprocess.PIPE,
         )
+
+class JupyterLab(Host):
+    def __init__(self, port: int, requirements: list = ["jupyterlab"]):
+        super().__init__(port, requirements)
+        self._start_server()
+
+    def _start_server(self):
+        subprocess.run(
+            f"python -m jupyter lab --allow-root --ip=0.0.0.0 --port {self.port}".split(),
+            stdout=subprocess.PIPE,
+        )
