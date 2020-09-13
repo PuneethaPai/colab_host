@@ -40,6 +40,6 @@ setup(
     name="colab_host",
     packages=find_packages(include=["colab_host", "colab_host.*"]),
     url="https://github.com/PuneethaPai/colab_host",
-    version="0.1.7",
+    version="0.1.8",
     zip_safe=False,
 )
