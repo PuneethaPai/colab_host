@@ -11,7 +11,7 @@ with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
 
-install_requires = ["pyngrok>=4"]
+install_requires = ["pyngrok>=4", "GitPython>=3"]
 setup(
     author="Puneetha Pai",
     author_email="puneethapai29@gmail.com",
