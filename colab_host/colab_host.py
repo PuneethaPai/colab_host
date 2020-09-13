@@ -12,19 +12,33 @@ def hello(name: str = None) -> str:
 
 
 class Host:
-    def __init__(self, port: int, requirements: list or str = None):
+    def __init__(
+        self, port: int, requirements: list or str = None, git_url: str = None
+    ):
         super().__init__()
-        self.port = port
+        if isinstance(git_url, str):
+            self._clone_repo(git_url)
         self._install_requirements(requirements)
+        self.port = port
         self._start_tunnel()
+
+    def _clone_repo(self, git_url) -> Repo:
+        folder_name = re.search(r"[^/]+$", git_url).group().replace(".git", "")
+        folder = Path(folder_name)
+        if folder.exists() and folder.is_dir():
+            shutil.rmtree(folder)
+        repo = Repo.clone_from(git_url, folder)
+        self.repo = repo
+        os.chdir(self.repo.working_dir)
 
     def _install_requirements(self, requirements: list or str):
         subprocess.run(f"pip install --upgrade pip".split(), stdout=subprocess.PIPE)
         if not isinstance(requirements, (str, list)):
             return
         if isinstance(requirements, str):
+            requirements_file = f"{self.repo.working_dir}/{requirements}"
             subprocess.run(
-                ["pip", "install", "-r", requirements], stdout=subprocess.PIPE
+                ["pip", "install", "-r", requirements_file], stdout=subprocess.PIPE
             )
             return
         for requirement in requirements:
@@ -84,9 +98,7 @@ class FlaskApp(Host):
     ):
         self.port = port
         self.app = app
-        self._clone_repo(git_url)
-        requirements_file = f"{self.repo.working_dir}/{requirements_file}"
-        super().__init__(port, requirements_file)
+        super().__init__(port, requirements_file, git_url)
         self._start_server()
 
     def _start_server(self):
@@ -95,12 +107,22 @@ class FlaskApp(Host):
             stdout=subprocess.PIPE,
         )
 
-    def _clone_repo(self, git_url) -> Repo:
-        subprocess.run("pip install GitPython".split(), stdout=subprocess.PIPE)
-        folder_name = re.search(r"[^/]+$", git_url).group().replace(".git", "")
-        folder = Path(folder_name)
-        if folder.exists() and folder.is_dir():
-            shutil.rmtree(folder)
-        repo = Repo.clone_from(git_url, folder)
-        self.repo = repo
-        os.chdir(self.repo.working_dir)
+
+class UvicornApp(Host):
+    def __init__(
+        self,
+        port: int = 1000,
+        app="main:app",
+        git_url="https://github.com/PuneethaPai/colab_host_flask_demo",
+        requirements_file: str = "requirements.txt",
+    ):
+        self.port = port
+        self.app = app
+        super().__init__(port, requirements_file, git_url)
+        self._start_server()
+
+    def _start_server(self):
+        subprocess.run(
+            f"uvicorn --host 0.0.0.0 --port {self.port} {self.app}".split(),
+            stdout=subprocess.PIPE,
+        )

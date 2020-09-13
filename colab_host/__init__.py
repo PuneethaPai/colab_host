@@ -4,4 +4,11 @@ __author__ = """Puneetha Pai"""
 __email__ = "puneethapai29@gmail.com"
 __version__ = "0.1.7"
 
-from .colab_host import Host, SimpleHttpServer, JupyterNotebook, JupyterLab
+from .colab_host import (
+    Host,
+    SimpleHttpServer,
+    JupyterNotebook,
+    JupyterLab,
+    FlaskApp,
+    UvicornApp,
+)
