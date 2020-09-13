@@ -38,3 +38,15 @@ class SimpleHttpServer(Host):
         subprocess.run(
             f"python -m http.server {self.port}".split(), stdout=subprocess.PIPE
         )
+
+
+class JupyterNotebook(Host):
+    def __init__(self, port: int, requirements: list = ["notebook"]):
+        super().__init__(port, requirements)
+        self._start_server()
+
+    def _start_server(self):
+        subprocess.run(
+            f"python -m jupyter notebook --allow-root --ip=0.0.0.0 --port {self.port}".split(),
+            stdout=subprocess.PIPE,
+        )
