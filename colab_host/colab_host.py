@@ -1,19 +1,31 @@
 import subprocess
 from pyngrok import ngrok
 from git import Repo
-import regex as re
+import re
 import os
 import shutil
 from pathlib import Path
 
 
-def hello(name: str = None) -> str:
-    return f"""Hello {name if name else "World"}!"""
-
-
 class Host:
+    """Base class for hosting any python application.
+
+    Given `port` number it will expose the port to internet.
+    Given `requirements` will install them using `pip install`.
+    Given `git_url` it will clone the repo for you.
+
+    Parameters
+    ----------
+    port : int, optional
+    requirements : List[str] or str, optional
+        List[str]: list of package requirements for hosting.
+        str: requirements file path to install requirements from.
+    git_url : str, optional
+
+    """
+
     def __init__(
-        self, port: int, requirements: list or str = None, git_url: str = None
+        self, port: int = 1000, requirements: list or str = None, git_url: str = None
     ):
         super().__init__()
         if isinstance(git_url, str):
@@ -54,8 +66,15 @@ class Host:
 
 
 class SimpleHttpServer(Host):
-    def __init__(self, port: int, requirements: list = None):
-        super().__init__(port, requirements)
+    """Class to expose simple file server application.
+
+    Parameters
+    ----------
+    port : int, optional
+    """
+
+    def __init__(self, port: int = 1000):
+        super().__init__(port)
         self._start_server()
 
     def _start_server(self):
@@ -65,7 +84,18 @@ class SimpleHttpServer(Host):
 
 
 class JupyterNotebook(Host):
-    def __init__(self, port: int, requirements: list = ["notebook"]):
+    """Class to expose Jupyter Notebook IDE on browser.
+
+    Parameters
+    ----------
+    port : int, optional
+    requirements : List[str], optional
+        Defaults to `["notebook"]` and you can include
+        other packages to include with this. For example
+        notebook extension, theme, etc
+    """
+
+    def __init__(self, port: int = 1000, requirements: list = ["notebook"]):
         super().__init__(port, requirements)
         self._start_server()
 
@@ -77,7 +107,18 @@ class JupyterNotebook(Host):
 
 
 class JupyterLab(Host):
-    def __init__(self, port: int, requirements: list = ["jupyterlab"]):
+    """Class to expose Jupyter Lab IDE on browser.
+
+    Parameters
+    ----------
+    port : int, optional
+    requirements : List[str], optional
+        Defaults to `["jupyterlab"]` and you can include
+        other packages to include with this. For example
+        notebook extension, theme, etc
+    """
+
+    def __init__(self, port: int = 1000, requirements: list = ["jupyterlab"]):
         super().__init__(port, requirements)
         self._start_server()
 
@@ -89,6 +130,21 @@ class JupyterLab(Host):
 
 
 class FlaskApp(Host):
+    """Class to expose python Flask or Gunicorn application.
+
+    Parameters
+    ----------
+    port : int, optional
+    app : str, optional
+        Definition of your python gunicorn app. (Defaults to `"main:app"`).
+    git_url : str, optional
+        Git URL to clone your repo containing application.
+        (Defaults to `"https://github.com/PuneethaPai/colab_host_flask_demo"`).
+    requirements_file: str, optional
+        Name of file in repo `git_url` containing requirements for hosting the
+        application. (Defaults to `"requirements.txt"`).
+    """
+
     def __init__(
         self,
         port: int = 1000,
@@ -109,6 +165,21 @@ class FlaskApp(Host):
 
 
 class UvicornApp(Host):
+    """Class to expose python FastApi or Uvicorn application.
+
+    Parameters
+    ----------
+    port : int, optional
+    app : str, optional
+        Definition of your python gunicorn app. (Defaults to `"main:app"`).
+    git_url : str, optional
+        Git URL to clone your repo containing application.
+        (Defaults to `"https://github.com/PuneethaPai/colab_host_uvicorn_demo"`).
+    requirements_file: str, optional
+        Name of file in repo `git_url` containing requirements for hosting the
+        application. (Defaults to `"requirements.txt"`).
+    """
+
     def __init__(
         self,
         port: int = 1000,

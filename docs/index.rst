@@ -2,7 +2,7 @@ Welcome to ColabHost's documentation!
 ======================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1   
    :caption: Contents:
 
    readme
@@ -12,6 +12,8 @@ Welcome to ColabHost's documentation!
    contributing
    authors
    history
+
+.. include:: ../README.rst
 
 Indices and tables
 ==================

@@ -18,7 +18,9 @@ ColabHost
 
 
 
-Host any python application in colab environment..
+Host any python application in colab or kaggle notebook environment. 
+Inspired from `Abhishek Thakur <https://github.com/abhishekkrthakur/>`_,
+and his work on `colab code <https://github.com/abhishekkrthakur/colabcode>`_ to host VScode IDE in any notebook environment using pyngrok.
 
 
 * Free software: MIT license
@@ -28,7 +30,12 @@ Host any python application in colab environment..
 Features
 --------
 
-* TODO
+Since colabcode already hosts VScode IDE this package extends the idea to host following IDE and python applications:
+
+* Jupyter Notebook 
+* Jupyter Lab 
+* Flask and Gunicron applications 
+* FastAPI and Uvicorn applications
 
 Credits
 -------
