@@ -15,6 +15,8 @@ Welcome to ColabHost's documentation!
 
 .. include:: ../README.rst
 
+.. include:: usage.rst
+
 Indices and tables
 ==================
 * :ref:`genindex`

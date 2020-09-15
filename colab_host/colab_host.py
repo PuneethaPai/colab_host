@@ -62,7 +62,7 @@ class Host:
             public_url = tunnel.public_url
             ngrok.disconnect(public_url)
         url = ngrok.connect(port=self.port, options={"bind_tls": True})
-        print(f"Code Server can be accessed on: {url}")
+        print(f"Hosted Server can be accessed on: {url}")
 
 
 class SimpleHttpServer(Host):

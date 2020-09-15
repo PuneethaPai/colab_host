@@ -2,11 +2,11 @@
 Usage
 =====
 
-To use Host a simple in a project::
+To start a simple HTTP File Server::
 
-    from colab_host import Host
+    from colab_host import SimpleHttpServer
     
-    Host(port=1000)
+    SimpleHttpServer(port=1000)
 
 To start Jupyter Notebook in colab::
 

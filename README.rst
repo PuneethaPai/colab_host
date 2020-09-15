@@ -6,9 +6,6 @@ ColabHost
 .. image:: https://img.shields.io/pypi/v/colab_host.svg
         :target: https://pypi.python.org/pypi/colab_host
 
-.. image:: https://img.shields.io/travis/PuneethaPai/colab_host.svg
-        :target: https://travis-ci.com/PuneethaPai/colab_host
-
 .. image:: https://readthedocs.org/projects/colab-host/badge/?version=latest
         :target: https://colab-host.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
