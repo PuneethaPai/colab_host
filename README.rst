@@ -3,6 +3,9 @@ ColabHost
 =========
 
 
+.. image:: https://img.shields.io/github/workflow/status/PuneethaPai/colab_host/CI%20Build.svg
+        :target: https://github.com/PuneethaPai/colab_host/actions
+
 .. image:: https://img.shields.io/pypi/v/colab_host.svg
         :target: https://pypi.python.org/pypi/colab_host
 
