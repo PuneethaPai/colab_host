@@ -28,18 +28,18 @@ Given the hardware you should be able to do more.
 Inspired from `Abhishek Thakur <https://github.com/abhishekkrthakur/>`_, and his work on `colab code <https://github.com/abhishekkrthakur/colabcode>`_ this package extends the idea.
 
 =========
-Features:
+Features
 =========
 
 Supported IDEs:
-~~~~~~~~~~~~~~
+---------------
 
 * Jupyter Notebook 
 * Jupyter Lab 
 * For VScode you can use `colabcode <https://github.com/abhishekkrthakur/colabcode>`_
 
 Supported Applications:
-~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 * Flask and Gunicron applications 
 * FastAPI and Uvicorn applications
@@ -47,15 +47,13 @@ Supported Applications:
 *This is purely for developement and testing purpose. You can use supported IDEs to seamlessly develop your idea and also host them for testing purpose.*
 *It is not advised to use for production purpose.*
 
-=============
-Installation:
-=============
+
+Installation
+------------
 .. code-block:: console
 
     $ pip install colab_host
 
-
-.. include:: usage.rst
 
 * Free software: MIT license
 * Documentation: https://colab-host.readthedocs.io.

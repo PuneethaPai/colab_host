@@ -14,13 +14,14 @@ class Host:
     Given `requirements` will install them using `pip install`.
     Given `git_url` it will clone the repo for you.
 
-    Parameters
-    ----------
-    port : int, optional
-    requirements : List[str] or str, optional
-        List[str]: list of package requirements for hosting.
-        str: requirements file path to install requirements from.
-    git_url : str, optional
+    Parameters:
+
+        port : int, optional
+
+        requirements : List[str] or str, optional
+            List[str]: list of package requirements for hosting.
+            str: requirements file path to install requirements from.
+        git_url : str, optional
 
     """
 
@@ -68,9 +69,9 @@ class Host:
 class SimpleHttpServer(Host):
     """Class to expose simple file server application.
 
-    Parameters
-    ----------
-    port : int, optional
+    Parameters:
+
+        port : int, optional
     """
 
     def __init__(self, port: int = 1000):
@@ -86,13 +87,14 @@ class SimpleHttpServer(Host):
 class JupyterNotebook(Host):
     """Class to expose Jupyter Notebook IDE on browser.
 
-    Parameters
-    ----------
-    port : int, optional
-    requirements : List[str], optional
-        Defaults to `["notebook"]` and you can include
-        other packages to include with this. For example
-        notebook extension, theme, etc
+    Parameters:
+
+        port : int, optional
+
+        requirements : List[str], optional
+            Defaults to `["notebook"]` and you can include
+            other packages to include with this. For example
+            notebook extension, theme, etc
     """
 
     def __init__(self, port: int = 1000, requirements: list = ["notebook"]):
@@ -109,13 +111,14 @@ class JupyterNotebook(Host):
 class JupyterLab(Host):
     """Class to expose Jupyter Lab IDE on browser.
 
-    Parameters
-    ----------
-    port : int, optional
-    requirements : List[str], optional
-        Defaults to `["jupyterlab"]` and you can include
-        other packages to include with this. For example
-        notebook extension, theme, etc
+    Parameters:
+
+        port : int, optional
+
+        requirements : List[str], optional
+            Defaults to `["jupyterlab"]` and you can include
+            other packages to include with this. For example
+            notebook extension, theme, etc
     """
 
     def __init__(self, port: int = 1000, requirements: list = ["jupyterlab"]):
@@ -132,17 +135,18 @@ class JupyterLab(Host):
 class FlaskApp(Host):
     """Class to expose python Flask or Gunicorn application.
 
-    Parameters
-    ----------
-    port : int, optional
-    app : str, optional
-        Definition of your python gunicorn app. (Defaults to `"main:app"`).
-    git_url : str, optional
-        Git URL to clone your repo containing application.
-        (Defaults to `"https://github.com/PuneethaPai/colab_host_flask_demo"`).
-    requirements_file: str, optional
-        Name of file in repo `git_url` containing requirements for hosting the
-        application. (Defaults to `"requirements.txt"`).
+    Parameters:
+
+        port : int, optional
+
+        app : str, optional
+            Definition of your python gunicorn app. (Defaults to `"main:app"`).
+        git_url : str, optional
+            Git URL to clone your repo containing application.
+            (Defaults to `"https://github.com/PuneethaPai/colab_host_flask_demo"`).
+        requirements_file: str, optional
+            Name of file in repo `git_url` containing requirements for hosting the
+            application. (Defaults to `"requirements.txt"`).
     """
 
     def __init__(
@@ -167,17 +171,18 @@ class FlaskApp(Host):
 class UvicornApp(Host):
     """Class to expose python FastApi or Uvicorn application.
 
-    Parameters
-    ----------
-    port : int, optional
-    app : str, optional
-        Definition of your python gunicorn app. (Defaults to `"main:app"`).
-    git_url : str, optional
-        Git URL to clone your repo containing application.
-        (Defaults to `"https://github.com/PuneethaPai/colab_host_uvicorn_demo"`).
-    requirements_file: str, optional
-        Name of file in repo `git_url` containing requirements for hosting the
-        application. (Defaults to `"requirements.txt"`).
+    Parameters:
+
+        port : int, optional
+
+        app : str, optional
+            Definition of your python gunicorn app. (Defaults to `"main:app"`).
+        git_url : str, optional
+            Git URL to clone your repo containing application.
+            (Defaults to `"https://github.com/PuneethaPai/colab_host_uvicorn_demo"`).
+        requirements_file: str, optional
+            Name of file in repo `git_url` containing requirements for hosting the
+            application. (Defaults to `"requirements.txt"`).
     """
 
     def __init__(
