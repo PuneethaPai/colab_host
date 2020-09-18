@@ -20,7 +20,7 @@ To start Jupyter Lab in colab::
 
     JupyterLab(port=1000)
 
-To start Flas Application in colab::
+To start Flask Application in colab::
 
     from colab_host import FlaskApp
 
