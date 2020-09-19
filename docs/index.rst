@@ -3,6 +3,8 @@ Welcome to ColabHost's documentation!
 
 .. include:: ../README.rst
 
+.. include:: usage
+
 .. toctree::
    :maxdepth: 1   
    :caption: Contents:
